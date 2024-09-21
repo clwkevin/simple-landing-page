@@ -11,44 +11,57 @@
   <!-- Navbar -->
   <header class="bg-gray-800 shadow-lg sticky top-0 z-10">
     <nav class="container mx-auto flex justify-between items-center py-4">
-      <div class="text-3xl font-bold text-yellow-500">FootballStream</div>
-      <ul class="flex space-x-6 text-lg">
+      <div class="text-2xl md:text-3xl font-bold text-yellow-500">FootballStream</div>
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-yellow-500 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+      <ul id="menu" class="hidden md:flex space-x-6 text-lg">
         <li><a href="#matches" class="hover:text-yellow-400">Matches</a></li>
         <li><a href="#about" class="hover:text-yellow-400">About Us</a></li>
         <li><a href="#telegram" class="hover:text-yellow-400">Join Telegram</a></li>
         <li><a href="#contact" class="hover:text-yellow-400">Contact Us</a></li>
       </ul>
     </nav>
+    <script>
+      document.getElementById('menu-toggle').addEventListener('click', () => {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('hidden');
+      });
+    </script>
   </header>
 
   <!-- Hero Section -->
   <section class="bg-cover bg-center h-screen flex items-center" style="background-image: url('/path-to-your-image.jpg');">
-    <div class="container mx-auto text-center">
-      <h1 class="text-5xl font-bold mb-6 leading-tight">Stream Live Football Matches Anywhere, Anytime!</h1>
-      <p class="text-xl mb-8">Don't miss any match, catch all the live action on FootballStream.</p>
+    <div class="container mx-auto text-center px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Stream Live Football Matches Anywhere, Anytime!</h1>
+      <p class="text-lg md:text-xl mb-8">Don't miss any match, catch all the live action on FootballStream.</p>
       <a href="#matches" class="bg-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-yellow-600 transition">Watch Now</a>
     </div>
   </section>
 
   <!-- Matches Section -->
   <section id="matches" class="py-16 bg-gray-900">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-12">Upcoming Matches</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Upcoming Matches</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h3 class="text-2xl font-bold mb-4">Real Madrid vs Barcelona</h3>
+          <h3 class="text-xl md:text-2xl font-bold mb-4">Real Madrid vs Barcelona</h3>
           <p class="text-lg mb-2">Date: 23 September 2024</p>
           <p class="text-lg mb-4">Time: 19:00 UTC</p>
           <a href="#" class="text-yellow-400 hover:underline">Watch Live</a>
         </div>
         <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h3 class="text-2xl font-bold mb-4">Manchester United vs Liverpool</h3>
+          <h3 class="text-xl md:text-2xl font-bold mb-4">Manchester United vs Liverpool</h3>
           <p class="text-lg mb-2">Date: 25 September 2024</p>
           <p class="text-lg mb-4">Time: 18:30 UTC</p>
           <a href="#" class="text-yellow-400 hover:underline">Watch Live</a>
         </div>
         <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h3 class="text-2xl font-bold mb-4">Juventus vs AC Milan</h3>
+          <h3 class="text-xl md:text-2xl font-bold mb-4">Juventus vs AC Milan</h3>
           <p class="text-lg mb-2">Date: 26 September 2024</p>
           <p class="text-lg mb-4">Time: 20:00 UTC</p>
           <a href="#" class="text-yellow-400 hover:underline">Watch Live</a>
@@ -59,28 +72,28 @@
 
   <!-- About Section -->
   <section id="about" class="bg-gray-800 py-16">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-12">Why Choose FootballStream?</h2>
-      <div class="lg:pl-12 text-center lg:text-left">
-        <p class="text-lg">With FootballStream, you can watch live football matches from all over the world, in high definition, with no interruptions. Access matches from top leagues such as La Liga, Premier League, Serie A, and more, all in one place.</p>
-        <p class="text-lg mt-4">We offer exclusive content, match replays, highlights, and more. Subscribe now to enjoy the ultimate football experience!</p>
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose FootballStream?</h2>
+      <div class="text-center">
+        <p class="text-lg md:text-xl">With FootballStream, you can watch live football matches from all over the world, in high definition, with no interruptions. Access matches from top leagues such as La Liga, Premier League, Serie A, and more, all in one place.</p>
+        <p class="text-lg md:text-xl mt-4">We offer exclusive content, match replays, highlights, and more. Subscribe now to enjoy the ultimate football experience!</p>
       </div>
     </div>
   </section>
 
   <!-- Telegram Section -->
   <section id="telegram" class="py-16 bg-yellow-500">
-    <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-6">Join Our Telegram!</h2>
-      <p class="text-lg mb-8">Get updates on upcoming matches, exclusive content, and more directly in our Telegram group.</p>
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Join Our Telegram!</h2>
+      <p class="text-lg md:text-xl mb-8">Get updates on upcoming matches, exclusive content, and more directly in our Telegram group.</p>
       <a href="https://t.me/MatchDayStream" target="_blank" class="bg-gray-900 text-yellow-500 px-6 py-3 rounded-lg font-bold hover:bg-gray-700 transition">Join Now</a>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact" class="py-16 bg-gray-800">
-    <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact Us</h2>
       <p class="text-lg mb-8">Have questions? Fill out the form below and we will get back to you as soon as possible.</p>
       <form action="#" method="POST" class="max-w-xl mx-auto">
         <div class="mb-4">
