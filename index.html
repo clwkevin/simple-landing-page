@@ -6,33 +6,73 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Live Football Streaming</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #mobile-menu {
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+    #mobile-menu.open {
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-white">
   <!-- Navbar -->
-  <header class="bg-gray-800 shadow-lg sticky top-0 z-10">
-    <nav class="container mx-auto flex justify-between items-center py-3 px-4 md:py-4">
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <nav class="container mx-auto flex justify-between items-center py-4 px-4 md:py-4">
       <div class="text-xl sm:text-2xl font-bold text-yellow-500">FootballStream</div>
       <div class="md:hidden">
         <button id="menu-toggle" class="text-yellow-500 focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>
       </div>
-      <ul id="menu" class="hidden md:flex space-x-4 sm:space-x-6 text-sm sm:text-lg">
+      <ul class="hidden md:flex space-x-4 sm:space-x-6 text-sm sm:text-lg">
         <li><a href="#matches" class="hover:text-yellow-400">Matches</a></li>
         <li><a href="#about" class="hover:text-yellow-400">About Us</a></li>
         <li><a href="#telegram" class="hover:text-yellow-400">Join Telegram</a></li>
         <li><a href="#contact" class="hover:text-yellow-400">Contact Us</a></li>
       </ul>
     </nav>
-    <script>
-      document.getElementById('menu-toggle').addEventListener('click', () => {
-        const menu = document.getElementById('menu');
-        menu.classList.toggle('hidden');
-      });
-    </script>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 z-30 flex flex-col items-center justify-center space-y-6 text-xl text-yellow-400 hidden">
+    <button id="menu-close" class="text-yellow-500 absolute top-6 right-6 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <a href="#matches" class="hover:text-yellow-300" onclick="closeMenu()">Matches</a>
+    <a href="#about" class="hover:text-yellow-300" onclick="closeMenu()">About Us</a>
+    <a href="#telegram" class="hover:text-yellow-300" onclick="closeMenu()">Join Telegram</a>
+    <a href="#contact" class="hover:text-yellow-300" onclick="closeMenu()">Contact Us</a>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      setTimeout(() => {
+        mobileMenu.classList.add('open');
+      }, 10); // Delay for smoother animation
+    });
+
+    menuClose.addEventListener('click', () => {
+      closeMenu();
+    });
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      setTimeout(() => {
+        mobileMenu.classList.add('hidden');
+      }, 300); // Delay for smoother closing animation
+    }
+  </script>
 
   <!-- Hero Section -->
   <section class="bg-cover bg-center h-screen flex items-center px-4 sm:px-0" style="background-image: url('/path-to-your-image.jpg');">
